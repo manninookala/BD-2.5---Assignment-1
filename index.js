@@ -266,7 +266,7 @@ function sortByPriceLH(prod1, prod2) {
 app.get('/products/filter/ram', (req, res) => {
   let ram = parseInt(req.query.ram);
   let result = products.filter((prod) => filterByRam(prod, ram));
-  res.json(result);
+  res.json({ products: result });
 });
 
 function filterByRam(prod, ram) {
@@ -277,7 +277,7 @@ function filterByRam(prod, ram) {
 app.get('/products/filter/rom', (req, res) => {
   let rom = parseInt(req.query.rom);
   let result = products.filter((prod) => filterByRom(prod, rom));
-  res.json(result);
+  res.json({ products: result });
 });
 
 function filterByRom(prod, rom) {
@@ -288,7 +288,7 @@ function filterByRom(prod, rom) {
 app.get('/products/filter/brand', (req, res) => {
   let brand = req.query.brand;
   let result = products.filter((prod) => filterByBrand(prod, brand));
-  res.json(result);
+  res.json({ products: result });
 });
 
 function filterByBrand(prod, brand) {
@@ -299,7 +299,7 @@ function filterByBrand(prod, brand) {
 app.get('/products/filter/os', (req, res) => {
   let os = req.query.os;
   let result = products.filter((prod) => filterByOs(prod, os));
-  res.json(result);
+  res.json({ products: result });
 });
 
 function filterByOs(prod, os) {
@@ -310,7 +310,7 @@ function filterByOs(prod, os) {
 app.get('/products/filter/price', (req, res) => {
   let price = parseFloat(req.query.price);
   let result = products.filter((prod) => filterByPrice(prod, price));
-  res.json(result);
+  res.json({ products: result });
 });
 
 function filterByPrice(prod, price) {
@@ -319,7 +319,8 @@ function filterByPrice(prod, price) {
 
 //Endpoint 8: Send original array of products
 app.get('/products', (req, res) => {
-  res.json(products);
+  let sortedProducts = products.slice();
+  res.json({ products: sortedProducts });
 });
 
 app.listen(port, () => {
