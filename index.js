@@ -237,7 +237,7 @@ app.get('/products/sort/popularity', (req, res) => {
 });
 
 function sortByRatings(prod1, prod2) {
-  return prod2.popularity - prod1.popularity;
+  return prod2.rating - prod1.rating;
 }
 
 //Endpoint 2: Get the products sorted by “high-to-low” price
@@ -280,7 +280,7 @@ app.get('/products/filter/rom', (req, res) => {
   res.json(result);
 });
 
-function filterByRom(prod, ram) {
+function filterByRom(prod, rom) {
   return prod.rom === rom;
 }
 
