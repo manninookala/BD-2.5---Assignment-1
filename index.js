@@ -270,7 +270,7 @@ app.get('/products/filter/ram', (req, res) => {
 });
 
 function filterByRam(prod, ram) {
-  return prod.ram === 8;
+  return prod.ram === ram;
 }
 
 //Endpoint 5: Filter the products based on the “ROM” option.
@@ -281,7 +281,7 @@ app.get('/products/filter/rom', (req, res) => {
 });
 
 function filterByRom(prod, ram) {
-  return prod.rom === 64;
+  return prod.rom === rom;
 }
 
 //Endpoint 6: Filter the products based on the “Brand” option.
